@@ -6,7 +6,13 @@ app.config['SECRET_KEY'] = 'super-secret-key'
 
 @app.route('/',methods = ['GET','POST'] ) # What methods are needed?
 def home():
-	
+	quote = request.form["q"]
+	autherquote = request.form["athrq"]
+	autherage = request.form["athra"]
+	try:
+	  login_session["q"] = quote
+	  login_session["athrq"] = autherquote
+	  login_session["athra"] = autherage
 	return render_template('home.html')
 
 
